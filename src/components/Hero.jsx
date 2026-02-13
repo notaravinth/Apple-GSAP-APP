@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+
+
 
 const Hero = () => {
+  const videoRef = useRef();
+
+  useEffect(() => {
+    if(videoRef.current) videoRef.current.playbackRate = 2;
+  },[])
+
   return (
-    <div>
-      
-    </div>
+    <section id = "hero">
+      <div>
+        <h1>Macbook Pro</h1>
+        <img src="/title.png" alt="Macbook title" />
+      </div>
+      <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline></video>
+    </section>
   )
 }
 
